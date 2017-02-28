@@ -61,8 +61,8 @@ public class DeputiesReimbursementsQuickSort {
 				troca = this.valores[esq];
 				this.valores[esq] = this.valores[dir];
 				this.valores[dir] = troca;
-				esq = esq + 1;
-				dir = dir - 1;
+				esq++;
+				dir--;
 			}
 		}
 		if (dir > esquerda)
