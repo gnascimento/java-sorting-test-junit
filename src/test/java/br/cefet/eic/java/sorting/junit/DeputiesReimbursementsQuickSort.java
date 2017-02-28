@@ -39,34 +39,36 @@ public class DeputiesReimbursementsQuickSort {
 		System.out.println(tempoFim);
 		System.out.println(valores[0]);
 		System.out.println(valores.length);
-	}
-	
-	private void quickSort(int inicio, int fim) {
-		if(inicio < fim) {
-			int posicaoPivo = particiona(0, valores.length - 1);
-			quickSort(inicio, posicaoPivo -1);
-			quickSort(posicaoPivo + 1, fim);
+		System.out.println(" ----------- ");
+		for(Double num : this.valores) {
+			System.out.println(num);
 		}
 	}
 	
-	private int particiona(int inicio, int fim) {
-		int esq = inicio;
-		int dir = fim;
-		double pivo = this.valores[inicio];
-		while(esq < dir) {
-			while(this.valores[esq] <= pivo)
-				esq++;
-			while(this.valores[dir] > pivo)
-				dir--;
-			if(esq < dir) {
-				double aux = this.valores[esq];
+	public void quickSort(int esquerda, int direita) {
+		int esq = esquerda;
+		int dir = direita;
+		double pivo = this.valores[(esq + dir) / 2];
+		double troca;
+		while (esq <= dir) {
+			while (this.valores[esq] < pivo) {
+				esq = esq + 1;
+			}
+			while (this.valores[dir] > pivo) {
+				dir = dir - 1;
+			}
+			if (esq <= dir) {
+				troca = this.valores[esq];
 				this.valores[esq] = this.valores[dir];
-				this.valores[dir] = aux;
+				this.valores[dir] = troca;
+				esq = esq + 1;
+				dir = dir - 1;
 			}
 		}
-		this.valores[inicio] = this.valores[dir];
-		this.valores[fim] = pivo;
-		return dir;
+		if (dir > esquerda)
+			quickSort(esquerda, dir);
+		if (esq < direita)
+			quickSort(esq, direita);
 	}
 
 }
