@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Configuration {
-	private static final String NOME_ARQUIVO = "C:\\tmp\\dirty_deputies_v2.csv";
+	private static final String NOME_ARQUIVO = "C:\\tmp\\vgsales.csv";
 
 	public static Double[] carregarValores() throws FileNotFoundException, IOException, NumberFormatException {
 		
@@ -31,7 +31,7 @@ public class Configuration {
 				}
 
 				String[] registro = line.split(",(?=([^\"]*\"[^\"]*\")*(?![^\"]*\"))");
-				double valor = Double.parseDouble(registro[7]);
+				double valor = Double.parseDouble(registro[10]);
 				lista.add(valor);
 				count++;
 			}

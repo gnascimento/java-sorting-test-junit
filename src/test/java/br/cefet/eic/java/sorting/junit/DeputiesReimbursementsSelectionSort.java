@@ -2,7 +2,6 @@ package br.cefet.eic.java.sorting.junit;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.Date;
 
 import org.junit.Assert;
 import org.junit.Before;
@@ -31,7 +30,7 @@ public class DeputiesReimbursementsSelectionSort {
 
 	@Test
 	public void selectionSort() {
-		long tempoInicio = new Date().getTime();
+		long tempoInicio = System.currentTimeMillis();
 		for (int i = 0; i < valores.length; i++) {
 			int menor = i;
 			for (int j = i + 1; j < valores.length; j++) {
@@ -45,7 +44,7 @@ public class DeputiesReimbursementsSelectionSort {
 				valores[i] = temp;
 			}
 		}
-		long tempoFim = (new Date().getTime() - tempoInicio) / 1000;
+		long tempoFim = System.currentTimeMillis() - tempoInicio;
 		System.out.println(tempoFim);
 		System.out.println(valores[0]);
 		System.out.println(valores.length);
